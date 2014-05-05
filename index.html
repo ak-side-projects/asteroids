@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asteroids</title>
+		<script src="vendor/jquery-1.9.1.js"></script>
+    <script src="vendor/keymaster.js"></script>
+    <script src="lib/inherits.js"></script>
+    <script src="lib/moving_object.js"></script>
+    <script src="lib/asteroid.js"></script>
+    <script src="lib/bullet.js"></script>
+    <script src="lib/ship.js"></script>
+    <script src="lib/game.js"></script>
+
+    <style>
+		body {
+			font-family: sans-serif;
+		}
+    canvas {
+      background: black;
+    }
+    </style>
+</head>
+<body>
+    <h1>Asteroids</h1>
+    <ul>
+      <li>'w', 'a', 's', 'd' to move</li>
+      <li>'space bar' to shoot</li>
+    </ul>
+
+    <script>
+			$(document).ready(function() {
+	      var canvas = $("<canvas width='" + DIM_X +
+                       "' height='" + DIM_Y + "'></canvas>");
+        $('body').append(canvas);
+				console.log('dim x', Asteroids.DIM_X);
+				console.log('canvas', canvas);
+	      var ctx = canvas.get(0).getContext("2d")
+	      var game  = new Asteroids.Game(ctx)
+	      game.start();
+			});
+    </script>
+</body>
+</html>
